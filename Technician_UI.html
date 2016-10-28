@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Page Title</title>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="handlebars-v4.0.5.js"></script>
+        <script src="jquery.visible.min.js"></script>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="bootstrap-treeview.css">
+        <script src="bootstrap-treeview.js"></script>
+        
+        <link rel="stylesheet" href="simple-sidebar.css">
+        
+        <link rel="stylesheet" href="Technician_UI.css">
+        <script src="data.js"></script>
+        <script src="Technician_UI.js"></script>
+    
+        <!--Header menu template-->
+        <script id="header" type="text/x-handlebars-template">
+            <div class='row text-center'>
+                {{name}}
+            </div>
+        </script>
+        
+        <!--Navigation menu template-->
+        <script id="navigationMenu" type="text/x-handlebars-template">
+            <button id='previous'><</button><button id='next'>></button>
+            <nav id="navScrollspy">
+                <div>
+                    <ul class="treeview nav">
+                        
+                        {{#each OPs}}
+                        <li class="dropdown">
+                            <a href="#" class='OP' index='{{index}}'>{{name}}</a>
+                            <ul >
+                                {{#each Instructions}}
+                                <li>
+                                    <a href="#" class='instruction' index='{{index}}'>{{number}}</a>
+                                    <ul >
+                                        {{#each pages}}
+                                        <li class="navElement " pageMasterIndex='{{masterIndex}}' OPIndex='{{OPIndex}}' OMSIndex='{{OMSIndex}}'>
+                                            <a class='section' href="#section{{pageID}}"  OPIndex='{{OPIndex}}' OMSIndex='{{OMSIndex}}' pageIndex='{{pageIndex}}'>Section {{number}}</a>
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                
+            </nav>
+        </script>
+        
+        <!--Docuemnt section template-->
+        <script id="visualization" type="text/x-handlebars-template">
+            <div id='viz{{index}}' class='sectionContainer row '>
+                <div class='col-xs-12'>
+                    <div class='row'>
+                        {{{ifframe}}}
+                    </div>
+                </div>
+            </div>
+        </script>
+        
+    </head>
+    
+    <body>
+        
+        <div class='container-fluid'>
+            <div id='header' class='row'>
+                <div class='col-xs-4'>
+                    <button id='menu-toggle-left'>Hide Left</button>
+                </div>
+                <div class='col-xs-4 text-center'>
+                    <div id='titleHeader'></div>
+                </div>
+                <div class='col-xs-4 text-right'>
+                    <button id='menu-toggle-right'>Hide Right</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="wrapper">
+            
+            <div id="sidebar-wrapper-left">
+                <div id='navContainer' ></div>
+            </div>
+            
+            <div id="page-content-wrapper">
+                
+                <div class='container-fluid'>
+                    
+                    <div class='row' id='contentRow'>
+                        <div id='visualizationContainer' class='col-xs-12'></div>
+                        <div id='gutter' style="min-height: 250px;" class='col-xs-12'></div>
+                    </div>
+                </div>
+            </div>
+            
+             <div id="sidebar-wrapper-right">
+                <button id='hideImages'>Hide Images</button>
+                <input id='findPartInput'/>
+                <button id='findPartButton'>Find Part</button>
+            </div>
+            
+        </div>
+        
+    </body>
+</html>

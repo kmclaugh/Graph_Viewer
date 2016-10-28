@@ -1,0 +1,67 @@
+a.found{
+    color: red!important;
+}
+tr.found{
+    background-color: red;
+}
+#header{
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 2000;
+}
+#wrapper{
+    padding-top: 26px;
+}
+.treeview.nav li a{
+    position: static;
+    display: inline;
+    padding: 0px;
+}
+li.active>a{
+    font-weight: 900;
+    color: goldenrod;
+}
+ul.treeview::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: white;
+}
+.item img{
+    min-height: 100px;
+}
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+.carousel-inner > .item > img, 
+.carousel-inner > .item > a > img{
+    margin: auto;
+}
+.hideImages{
+    display: none;
+}
+
+.SOETable{
+
+}
+
+.headerRow{
+    background-color: rgb(37, 74, 112)!important;
+    color: white;
+}
+
+tr.grey{
+    background-color: #f9f9f9;
+}
+td.quantity{
+    border-right: 1px solid #ddd;
+}
+td.tqcTooling{
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+tr.taskActive{
+    background-color: #dff0d8;
+    font-weight: bold;
+}
