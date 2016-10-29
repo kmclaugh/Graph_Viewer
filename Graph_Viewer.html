@@ -9,7 +9,6 @@
         <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
         <script src="https://d3js.org/d3.v3.min.js"></script>
         <script src="handlebars-v4.0.5.js"></script>
-        <script src="jquery.visible.min.js"></script>
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -17,43 +16,32 @@
         <link rel="stylesheet" href="bootstrap-treeview.css">
         <script src="bootstrap-treeview.js"></script>
         
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.5.0/fuse.min.js'></script>
+        
+        <script src="https://use.fontawesome.com/b50189dfaa.js"></script>
+        
         <link rel="stylesheet" href="simple-sidebar.css">
         
-        <link rel="stylesheet" href="Technician_UI.css">
+        <link rel="stylesheet" href="Graph_Viewer.css">
         <script src="data.js"></script>
-        <script src="Technician_UI.js"></script>
+        <script src="Graph_Viewer.js"></script>
     
         <!--Header menu template-->
         <script id="header" type="text/x-handlebars-template">
             <div class='row text-center'>
-                {{name}}
+                Our World in Data Viewer
             </div>
         </script>
         
         <!--Navigation menu template-->
         <script id="navigationMenu" type="text/x-handlebars-template">
-            <button id='previous'><</button><button id='next'>></button>
             <nav id="navScrollspy">
                 <div>
-                    <ul class="treeview nav">
+                    <ul class="nav">
                         
-                        {{#each OPs}}
+                        {{#each shownVizualitzations}}
                         <li class="dropdown">
-                            <a href="#" class='OP' index='{{index}}'>{{name}}</a>
-                            <ul >
-                                {{#each Instructions}}
-                                <li>
-                                    <a href="#" class='instruction' index='{{index}}'>{{number}}</a>
-                                    <ul >
-                                        {{#each pages}}
-                                        <li class="navElement " pageMasterIndex='{{masterIndex}}' OPIndex='{{OPIndex}}' OMSIndex='{{OMSIndex}}'>
-                                            <a class='section' href="#section{{pageID}}"  OPIndex='{{OPIndex}}' OMSIndex='{{OMSIndex}}' pageIndex='{{pageIndex}}'>Section {{number}}</a>
-                                        </li>
-                                        {{/each}}
-                                    </ul>
-                                </li>
-                                {{/each}}
-                            </ul>
+                            <a href="#viz{{index}}" class='OP' index='{{index}}'>{{title}}</a>
                         </li>
                         {{/each}}
                     </ul>
@@ -62,11 +50,16 @@
             </nav>
         </script>
         
-        <!--Docuemnt section template-->
+        <!--visualization emplate-->
         <script id="visualization" type="text/x-handlebars-template">
-            <div id='viz{{index}}' class='sectionContainer row '>
-                <div class='col-xs-12'>
-                    <div class='row'>
+            <div id='viz{{index}}' class='row'>
+                <div class='vizTitle row hide'>
+                    <div class='col-xs-12'>
+                        {{title}}
+                    </div>
+                </div>
+                <div class='row vizContainer'>
+                    <div class='col-xs-12'>
                         {{{ifframe}}}
                     </div>
                 </div>
@@ -79,14 +72,17 @@
         
         <div class='container-fluid'>
             <div id='header' class='row'>
-                <div class='col-xs-4'>
-                    <button id='menu-toggle-left'>Hide Left</button>
+                <div class='col-sm-4'>
+                    <a href="#" id='menu-toggle-left' class='menu-toggle-show'><span id='leftGlyph' class="glyphicon glyphicon-minus"></span></a>
                 </div>
-                <div class='col-xs-4 text-center'>
-                    <div id='titleHeader'></div>
+                <div class='col-sm-4 text-center'>
+                    <a target='_blank' id='titleHeader' href='https://ourworldindata.org/'>
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                        <span>Our World in Data Viewer</span>
+                    </a>
                 </div>
-                <div class='col-xs-4 text-right'>
-                    <button id='menu-toggle-right'>Hide Right</button>
+                <div class='col-sm-4 text-right'>
+                    <a href="#" id='menu-toggle-right'  class='menu-toggle-show'><span id='rightGlyph' class="glyphicon glyphicon-minus"></span></a>
                 </div>
             </div>
         </div>
@@ -109,9 +105,19 @@
             </div>
             
              <div id="sidebar-wrapper-right">
-                <button id='hideImages'>Hide Images</button>
-                <input id='findPartInput'/>
-                <button id='findPartButton'>Find Part</button>
+                <div class='toolsWrapper'>
+                    <p>&nbsp</p>
+                    <p>
+                        <input id='searchGraphs' placeholder="Search Graphs">
+                        <button id='searchGraphsButton'><span class="glyphicon glyphicon-search"></span></button>
+                    </p>
+                    <p>
+                        <label class="checkbox-inline"><input type="checkbox" value="" id='titlesOnly'>Show Titles Only</label>
+                    </p>
+                </div>
+                
+                
+                
             </div>
             
         </div>

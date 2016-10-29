@@ -1,0 +1,115 @@
+#header{
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 2000;
+	background-color: rgba(0,33,71,1);
+	color: white;
+	font-size: 14px;
+}
+@media(min-width:768px) {
+	#header a{
+		font-size: 26px;
+	}
+}
+#header a{
+	color: white;
+}
+#wrapper{
+    padding-top: 37px;
+}
+#menu-toggle-left.menu-toggle-show{
+	padding-left: 250px;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+#menu-toggle-right.menu-toggle-show{
+	padding-right: 250px;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.menu-toggle-hidden{
+	padding-left: 0px!important;
+	padding-right: 0px!important;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.vizTitle{
+    border: solid;
+    font-size: 27px;
+    border-color: rgb(204, 204, 204);
+    border-width: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.vizContainer{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+a.found{
+    color: red!important;
+}
+tr.found{
+    background-color: red;
+}
+
+
+.treeview.nav li a{
+    position: static;
+    display: inline;
+    padding: 0px;
+}
+li.active>a{
+    font-weight: 900;
+    color: goldenrod;
+}
+ul.treeview::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: white;
+}
+.item img{
+    min-height: 100px;
+}
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+.carousel-inner > .item > img, 
+.carousel-inner > .item > a > img{
+    margin: auto;
+}
+.hideImages{
+    display: none;
+}
+
+.SOETable{
+
+}
+
+.headerRow{
+    background-color: rgb(37, 74, 112)!important;
+    color: white;
+}
+
+tr.grey{
+    background-color: #f9f9f9;
+}
+td.quantity{
+    border-right: 1px solid #ddd;
+}
+td.tqcTooling{
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+tr.taskActive{
+    background-color: #dff0d8;
+    font-weight: bold;
+}

@@ -19,19 +19,20 @@
 }
 
 #wrapper.toggled-left {
-    padding-left: 200px;
+    padding-left: 300px;
 }
 #wrapper.toggled-right {
-    padding-right: 200px;
+    padding-right: 300px;
 }
 
 #sidebar-wrapper-left {
     z-index: 1000;
     position: fixed;
-    left: 200px;
+    left: 300px;
+    top: 37px;
     width: 0;
     height: 100%;
-    margin-left: -200px;
+    margin-left: -300px;
     overflow-y: auto;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -41,11 +42,11 @@
 #sidebar-wrapper-right {
     z-index: 1000;
     position: fixed;
-    right: 200px;
-    top: 26px;
+    right: 300px;
+    top: 37px;
     width: 0;
     height: 100%;
-    margin-right: -200px;
+    margin-right: -300px;
     overflow-y: auto;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -54,11 +55,11 @@
 }
 
 #wrapper.toggled-left #sidebar-wrapper-left {
-    width: 200px;
+    width: 300px;
 }
 
 #wrapper.toggled-right #sidebar-wrapper-right {
-    width: 200px;
+    width: 300px;
 }
 
 #page-content-wrapper {
@@ -69,7 +70,7 @@
 
 #wrapper.toggled-left #page-content-wrapper {
     position: absolute;
-    margin-right: -200px;
+    margin-right: -300px;
 }
 
 #wrapper.toggled-right #page-content-wrapper {
@@ -81,7 +82,7 @@
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 200px;
+    width: 300px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -126,8 +127,8 @@
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 200px;
-        padding-right: 200px;
+        padding-left: 300px;
+        padding-right: 300px;
     }
 
     #wrapper.toggled-left {
@@ -138,10 +139,10 @@
     }
 
     #sidebar-wrapper-left {
-        width: 200px;
+        width: 300px;
     }
     #sidebar-wrapper-right {
-        width: 200px;
+        width: 300px;
     }
 
     #wrapper.toggled-left #sidebar-wrapper-left {
